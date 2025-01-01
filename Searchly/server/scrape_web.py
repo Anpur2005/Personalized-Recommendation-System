@@ -38,6 +38,7 @@ def get_title(product, source):
     #             title_string = ""
 
     #     return brand_string + title_string
+    brand_string = ""
     if source == "amazon":
         try:
             title_string = product.find("img", attrs={'class':'s-image'}).get('alt')
@@ -230,7 +231,7 @@ async def scrape_flipkart(session, search_query):
 
     soup = BeautifulSoup(webpage, "html.parser")
     product_list = []
-    for product in soup.select("div.slAVV4, div._1sdMkc.LFEi7Z"):
+    for product in soup.select("div.slAVV4, div._1sdMkc.LFEi7Z, div.tUxRFH"):
     
         product_data = {
                 'source':"flipkart",
